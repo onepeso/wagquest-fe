@@ -7,6 +7,7 @@ import {
     CardTitle,
   } from '@/components/ui/card';
   import Image from 'next/image';
+  import { useRouter } from 'next/navigation';
   
   interface AttractionProps {
     attraction: {
@@ -15,52 +16,53 @@ import {
       description: string;
       location: string;
       rating: number;
-      image: string;
+      images: string;
     };
   }
   
   const AttractionCard = ({ attraction }: AttractionProps) => {
+
+    const router = useRouter(attraction.id);
+
+    const handleRoute = () => {
+      router.push(`/attraction/${attraction.id}`);
+    };
+
     return (
-        <Card className="w-full">
+      <Card onClick={() => handleRoute(attraction.id)} className="w-full">
       <CardHeader>
         <figure className="relative h-48">
-          <Image
-            src={attraction.image}
-            alt={attraction.name}
-            fill
-            className="object-cover rounded-t-md"
-          />
+          <div className="flex items-center justify-center bg-[#F5F5F5] w-full h-full rounded">
+            <Image src={attraction.images[0]} alt={attraction.name} layout="fill" objectFit="cover" />
+          </div>
         </figure>
       </CardHeader>
+    
       <CardContent>
         <header>
-          <CardTitle>{attraction.name}</CardTitle>
+          <CardTitle className="text-[#0077B6]">{attraction.name}</CardTitle>
         </header>
-        <CardDescription>{attraction.description}</CardDescription>
+    
+        <CardDescription className="text-black">{attraction.description}</CardDescription>
+    
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="flex items-center space-x-1">
-              {Array.from({ length: Math.round(attraction.rating) }).map(
-                (_, index) => (
-                  <span key={index} className="text-yellow-400">
-                    &#9733;
-                  </span>
-                )
-              )}
+              {Array.from({ length: Math.round(attraction.rating) }).map((_, index) => (
+                <span key={index} className="text-[#FFCA28]">
+                  &#9733;
+                </span>
+              ))}
             </div>
-            <span className="text-sm text-gray-500">{attraction.rating}</span>
+            <span className="text-sm text-[#8B4513]">{attraction.rating}</span>
           </div>
         </div>
+    
         <address className="mt-2">
-          <p className="text-sm font-bold">Location:</p>
-          <p>{`${attraction.location.city}, ${attraction.location.state}`}</p>
+          <p className="text-sm font-bold text-[#0077B6]">Location:</p>
+          <p className="text-black">{`${attraction.location.city}, ${attraction.location.state}`}</p>
         </address>
       </CardContent>
-      <CardFooter>
-        <button className="bg-green-500 text-white px-4 py-2 rounded-md">
-          Visit
-        </button>
-      </CardFooter>
     </Card>
     );
   };
