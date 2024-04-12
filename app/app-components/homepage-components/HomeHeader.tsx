@@ -10,9 +10,9 @@ const HomeHeader = () => {
         </h1>
         <p className="text-base md:text-lg mb-6 text-black">
           Explore a world of dog-friendly locations and experiences with
-          PawAdventures. Find the perfect dog parks, trails, cafes, and more.
-          Connect with fellow dog owners and embark on new adventures with your
-          furry friend.
+          WagQuest. Find the perfect dog parks, trails, cafes, and more. Connect
+          with fellow dog owners and embark on new adventures with your furry
+          friend.
         </p>
         <button className="font-bold py-2 px-6 rounded-md hover:bg-[#ce201d] transition-colors duration-300 text-white bg-[#EF5350]">
           We are in Alpha 1.0

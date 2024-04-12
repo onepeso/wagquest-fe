@@ -6,9 +6,9 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
-  title: "Paw Adventures",
+  title: "WagQuest",
   description:
-    "Explore a world of dog-friendly locations and experiences with PawAdventures. Find the perfect dog parks, trails, cafes, and more. Connect with fellow dog owners and embark on new adventures with your furry friend.",
+    "Explore a world of dog-friendly locations and experiences with WagQuest. Find the perfect dog parks, trails, cafes, and more. Connect with fellow dog owners and embark on new adventures with your furry friend.",
 };
 
 export default function RootLayout({
