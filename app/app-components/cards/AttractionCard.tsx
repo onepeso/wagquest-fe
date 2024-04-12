@@ -45,7 +45,7 @@ const AttractionCard = () => {
           <Card
             key={attraction?.id}
             onClick={() => handleRoute(attraction?.slug ?? "")}
-            className="w-full border-none shadow-md rounded-lg overflow-hidden"
+            className="w-full border-none shadow-md rounded-lg overflow-hidden cursor-pointer"
           >
             <CardHeader className="p-0">
               <figure className="relative">
@@ -66,7 +66,7 @@ const AttractionCard = () => {
               </figure>
             </CardHeader>
             <CardContent className="p-4">
-              <CardTitle className="font-bold text-lg mb-2">
+              <CardTitle className="font-bold text-lg mb-2 hover:text-[#eb5e28]">
                 {attraction?.name}
               </CardTitle>
               <address className="text-gray-600 text-sm">
