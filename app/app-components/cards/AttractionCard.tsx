@@ -16,6 +16,7 @@ interface AttractionProps {
     id: number;
     name: string;
     description: string;
+    slug: string;
     location: {
       city: string;
       state: string;
@@ -33,8 +34,8 @@ const AttractionCard = () => {
     fetchAttractions();
   }, [fetchAttractions]);
 
-  const handleRoute = (id: number) => {
-    router.push(`/attraction/${id}`);
+  const handleRoute = (slug: string) => {
+    router.push(`/attraction/${slug}`);
   };
 
   return (
@@ -43,50 +44,33 @@ const AttractionCard = () => {
         attractions.map((attraction: AttractionProps["attraction"]) => (
           <Card
             key={attraction?.id}
-            onClick={() => handleRoute(attraction?.id)}
-            className="w-full"
+            onClick={() => handleRoute(attraction?.slug ?? "")}
+            className="w-full border-none shadow-md rounded-lg overflow-hidden"
           >
-            <CardHeader>
-              <figure className="relative h-48">
-                <div className="flex items-center justify-center bg-[#F5F5F5] w-full h-full rounded">
+            <CardHeader className="p-0">
+              <figure className="relative">
+                <div className="flex items-center justify-center">
                   <Image
                     src={attraction?.images[0] || ""}
                     alt={attraction?.name || ""}
-                    width={500}
-                    height={500}
-                    objectFit="cover"
+                    width={600}
+                    height={400}
+                    className="w-full h-48 object-cover"
                   />
+                </div>
+                <div className="absolute top-4 right-4 bg-white px-2 py-1 rounded shadow">
+                  <span className="text-sm font-bold">
+                    &#9733; {attraction?.rating}
+                  </span>
                 </div>
               </figure>
             </CardHeader>
-            <CardContent>
-              <header>
-                <CardTitle className="text-[#0077B6]">
-                  {attraction?.name}
-                </CardTitle>
-              </header>
-              <CardDescription className="text-black">
-                {attraction?.description}
-              </CardDescription>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <div className="flex items-center space-x-1">
-                    {Array.from({
-                      length: Math.round(attraction?.rating || 0),
-                    }).map((__, index) => (
-                      <span key={index} className="text-[#FFCA28]">
-                        &#9733;
-                      </span>
-                    ))}
-                  </div>
-                  <span className="text-sm text-[#8B4513]">
-                    {attraction?.rating}
-                  </span>
-                </div>
-              </div>
-              <address className="mt-2">
-                <p className="text-sm font-bold text-[#0077B6]">Location:</p>
-                <p className="text-black">{`${attraction?.location.city}, ${attraction?.location.state}`}</p>
+            <CardContent className="p-4">
+              <CardTitle className="font-bold text-lg mb-2">
+                {attraction?.name}
+              </CardTitle>
+              <address className="text-gray-600 text-sm">
+                {`${attraction?.location.city}, ${attraction?.location.state}`}
               </address>
             </CardContent>
           </Card>

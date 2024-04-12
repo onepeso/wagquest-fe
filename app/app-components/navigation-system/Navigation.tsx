@@ -19,48 +19,48 @@ const Navigation = () => {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <Link href="/">
-                <span className="text-white font-bold text-xl">
-                  Paw Adventures
-                </span>
+                <span className="text-white font-bold text-xl">Wag Quest</span>
               </Link>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <Link
-                  href="/"
+                  href="/hotels"
                   className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Discover
+                  Hotels
                 </Link>
                 <Link
-                  href="/about"
+                  href="/restaurants"
                   className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  About
+                  Restaurants
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/activities"
                   className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Contact
+                  Activities
+                </Link>
+                <Link
+                  href="/events"
+                  className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Events
                 </Link>
               </div>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="-mr-2 flex gap-3 items-center md:hidden">
             {/* Clerk components */}
-            <div className="flex items-center">
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-              <SignedOut>
-                <div className="text-white">
-                  <SignInButton />
-                </div>
-              </SignedOut>
-            </div>
-          </div>
-          <div className="-mr-2 flex md:hidden">
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <div className="text-white">
+                <SignInButton />
+              </div>
+            </SignedOut>
             <button
               onClick={toggleMenu}
               type="button"
@@ -81,22 +81,28 @@ const Navigation = () => {
       <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <Link
-            href="/"
+            href="/hotels"
             className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            Discover
+            Hotels
           </Link>
           <Link
-            href="/about"
+            href="/restaurants"
             className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            About
+            Restaurants
           </Link>
           <Link
-            href="/contact"
+            href="/activities"
             className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            Contact
+            Activities
+          </Link>
+          <Link
+            href="/events"
+            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          >
+            Events
           </Link>
         </div>
       </div>

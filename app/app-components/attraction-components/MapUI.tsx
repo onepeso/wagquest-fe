@@ -1,7 +1,7 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Map from "@/app/app-components/map/Map";
 
-const MapUI = ({ attraction }) => {
+const MapUI = ({ attraction }: any) => {
   return (
     <>
       <Alert>

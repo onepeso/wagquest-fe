@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const GallerySystem = ({ attraction }) => {
+const GallerySystem = ({ attraction }: any) => {
   return (
     <>
       <div className="sm:col-span-2 md:col-span-3">
@@ -18,7 +18,7 @@ const GallerySystem = ({ attraction }) => {
       <div className="sm:col-span-2 grid grid-cols-2 gap-3">
         {attraction?.images
           .slice(1, 5)
-          .map((image, index) => (
+          .map((image: string, index: number) => (
             <Image
               key={index}
               src={image}

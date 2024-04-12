@@ -2,10 +2,10 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import moment from "moment";
 
-const AboutAttractionUI = ({ attraction }) => {
+const AboutAttractionUI = ({ attraction }: any) => {
   // Helper function to convert time format
   // TODO: Need to add this to the libs folder
-  const formatTime = (timeInSeconds) => {
+  const formatTime = (timeInSeconds: number) => {
     const hours = Math.floor(timeInSeconds / 3600);
     const minutes = Math.floor((timeInSeconds % 3600) / 60);
     const ampm = hours >= 12 ? "PM" : "AM";
@@ -21,7 +21,7 @@ const AboutAttractionUI = ({ attraction }) => {
 
   // Find today's operating hours
   const todaysOperatingHours = attraction?.operating_hours.find(
-    (hour) => hour.day === currentDay
+    (hour: any) => hour.day === currentDay
   );
 
   return (
@@ -71,8 +71,8 @@ const AboutAttractionUI = ({ attraction }) => {
           {accordionOpen && (
             <ul className="text-gray-700 mt-2">
               {attraction?.operating_hours
-                .filter((hour) => hour !== todaysOperatingHours)
-                .map((hour, index: number) => (
+                .filter((hour: any) => hour !== todaysOperatingHours)
+                .map((hour: any, index: number) => (
                   <li key={index}>
                     {hour.day}: {formatTime(hour.open_time)} -{" "}
                     {formatTime(hour.close_time)}
@@ -85,7 +85,7 @@ const AboutAttractionUI = ({ attraction }) => {
           <h2 className="text-lg font-bold text-gray-900 mb-2">Social Media</h2>
           <ul className="text-gray-700">
             {attraction?.social_media_stack.map(
-              (socialMedia, index: number) => (
+              (socialMedia: any, index: number) => (
                 <li key={index}>
                   <a
                     href={socialMedia.handle}

@@ -22,9 +22,9 @@ import {
   EmailShareButton,
 } from "next-share";
 
-const ShareSystem = ({ attraction }) => {
+const ShareSystem = ({ attraction }: any) => {
   const [isCopied, setIsCopied] = useState(false);
-  const sharableURL = `https://pawadventures.com/attraction/${attraction?.id}`;
+  const sharableURL = `https://wagquest.com/attraction/${attraction?.slug}`;
 
   const copyToClipboard = async () => {
     try {
@@ -70,11 +70,7 @@ const ShareSystem = ({ attraction }) => {
             <Label htmlFor="link" className="sr-only">
               Link
             </Label>
-            <Input
-              id="link"
-              defaultValue={`https://pawadventures.com/attraction/${attraction?.id}`}
-              readOnly
-            />
+            <Input id="link" defaultValue={sharableURL} readOnly />
           </div>
           <Button
             type="submit"

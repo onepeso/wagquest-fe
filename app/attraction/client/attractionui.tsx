@@ -12,7 +12,7 @@ import MapUI from "@/app/app-components/attraction-components/MapUI";
 import GallerySystem from "@/app/app-components/attraction-components/GallerySystem";
 import AboutAttractionUI from "@/app/app-components/attraction-components/AboutAttractionUI";
 
-const AttractionUI = ({ params }) => {
+const AttractionUI = ({ params }: any) => {
   const { attraction } = AttractionLogic(params);
 
   return (

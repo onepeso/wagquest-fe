@@ -1,18 +1,16 @@
-'use client';
+"use client";
 
 import { useEffect } from "react";
 import { useStore } from "../../state/useStore";
 
+const AttractionLogic = (params: any) => {
+  const { attraction, fetchSingleAttraction } = useStore();
 
-const AttractionLogic = (params) => {
+  useEffect(() => {
+    fetchSingleAttraction(params.slug);
+  }, [params.slug, fetchSingleAttraction]);
 
-    const {attraction, fetchSingleAttraction} = useStore();
-
-    useEffect(() => {
-        fetchSingleAttraction(params.id);
-    }, [params.id, fetchSingleAttraction]);
-
-    return {attraction};
-}
+  return { attraction };
+};
 
 export default AttractionLogic;
