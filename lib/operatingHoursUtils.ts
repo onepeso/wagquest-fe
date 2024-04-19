@@ -9,7 +9,7 @@ export const isWithinOpeningHours = (
     // Closing time is on the next day
     return (
       currentTime.isBetween(openTime, moment().endOf("day")) ||
-      currentTime.isBetween(moment().startOf("day"), closeTime)
+      currentTime.isBetween(moment().startOf("day"), closeTime.add(1, "day"))
     );
   } else {
     // Closing time is on the same day

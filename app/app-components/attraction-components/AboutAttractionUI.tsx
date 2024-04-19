@@ -1,17 +1,14 @@
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import moment from "moment";
+import { Attraction } from "@/types/Common";
 
 const AboutAttractionUI = ({ attraction }: any) => {
   // Helper function to convert time format
   // TODO: Need to add this to the libs folder
-  const formatTime = (timeInSeconds: number) => {
-    const hours = Math.floor(timeInSeconds / 3600);
-    const minutes = Math.floor((timeInSeconds % 3600) / 60);
-    const ampm = hours >= 12 ? "PM" : "AM";
-    const formattedHours = hours % 12 || 12;
-    const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
-    return `${formattedHours}:${formattedMinutes} ${ampm}`;
+  const formatTime = (isoTimestamp: number) => {
+    const date = new Date(isoTimestamp);
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
 
   const [accordionOpen, setAccordionOpen] = useState(false);
@@ -54,9 +51,7 @@ const AboutAttractionUI = ({ attraction }: any) => {
           <ul className="text-gray-700">
             <li>
               {todaysOperatingHours
-                ? `${todaysOperatingHours.day}: ${formatTime(
-                    todaysOperatingHours.open_time
-                  )} - ${formatTime(todaysOperatingHours.close_time)}`
+                ? `${todaysOperatingHours.day}: ${formatTime(todaysOperatingHours.open_time)} - ${formatTime(todaysOperatingHours.close_time)}`
                 : "Operating hours for today are not available."}
             </li>
           </ul>
