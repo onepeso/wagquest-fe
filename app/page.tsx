@@ -17,7 +17,7 @@ export default function Home() {
         <CategoryListUI />
         <AttractionFilterUI />
       </section>
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-8 w-full max-w-8xl px-4">
+      <section className="md:container md:mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-8 w-full max-w-8xl px-4">
         <AttractionCard />
       </section>
       <section className="flex flex-col gap-2 md:gap-5 items-center my-10 md:my-20 capitalize text-xl font-semibold">

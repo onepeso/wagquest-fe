@@ -102,7 +102,7 @@ const AttractionFilterUI = () => {
             type="number"
             value={selectedPrice}
             onChange={(event) => {
-              setSelectedPrice(parseInt(event.target.value));
+              // setSelectedPrice(event.target.value as number);
             }}
             placeholder="Enter price"
             className="w-full"
@@ -111,7 +111,7 @@ const AttractionFilterUI = () => {
           <p>Rating: {selectedRating}</p>
           <Slider
             value={selectedRating}
-            onValueChange={(value) => setSelectedRating(value)}
+            // onValueChange={(value) => setSelectedRating(value)}
             defaultValue={[0]}
             max={5}
             step={1}

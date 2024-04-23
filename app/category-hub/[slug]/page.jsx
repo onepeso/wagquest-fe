@@ -1,6 +1,6 @@
 import CategoryHubUI from "../client/CategoryHubUI";
 
-const CategoryHubPage = ({ slug }) => {
+const CategoryHubPage = () => {
   return (
     <>
       <CategoryHubUI />
