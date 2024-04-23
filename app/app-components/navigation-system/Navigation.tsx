@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import NavLinks from "@/lib/navLinks";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -24,30 +25,14 @@ const Navigation = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link
-                  href="/hotels"
-                  className="text-white hover:bg-[#403d39] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Hotels
-                </Link>
-                <Link
-                  href="/restaurants"
-                  className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Restaurants
-                </Link>
-                <Link
-                  href="/activities"
-                  className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Activities
-                </Link>
-                <Link
-                  href="/events"
-                  className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Events
-                </Link>
+                {NavLinks.map((link: any) => (
+                  <Link
+                    href={link.href}
+                    className="text-white hover:bg-[#403d39] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
@@ -82,30 +67,14 @@ const Navigation = () => {
       </div>
       <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <Link
-            href="/hotels"
-            className="text-white hover:bg-[#403d39] hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Hotels
-          </Link>
-          <Link
-            href="/restaurants"
-            className="text-white hover:bg-[#403d39] hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Restaurants
-          </Link>
-          <Link
-            href="/activities"
-            className="text-white hover:bg-[#403d39] hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Activities
-          </Link>
-          <Link
-            href="/events"
-            className="text-white hover:bg-[#403d39] hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Events
-          </Link>
+          {NavLinks.map((link: any) => (
+            <Link
+              href={link.href}
+              className="text-white hover:bg-[#403d39] hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>

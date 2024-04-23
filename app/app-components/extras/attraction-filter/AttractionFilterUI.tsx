@@ -22,6 +22,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+import { Slider } from "@/components/ui/slider";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SlidersHorizontal } from "lucide-react";
@@ -52,9 +54,9 @@ const AttractionFilterUI = () => {
 
   return (
     <Dialog>
-      <DialogTrigger asChild className="flex gap-1">
+      <DialogTrigger asChild className="flex gap-2">
         <Button variant="outline">
-          <SlidersHorizontal className="w-1/4" />
+          <SlidersHorizontal size={20} />
           Filter
         </Button>
       </DialogTrigger>
@@ -94,6 +96,27 @@ const AttractionFilterUI = () => {
               </SelectGroup>
             </SelectContent>
           </Select>
+
+          <p>Price: {selectedPrice}</p>
+          <Input
+            type="number"
+            value={selectedPrice}
+            onChange={(event) => {
+              setSelectedPrice(parseInt(event.target.value));
+            }}
+            placeholder="Enter price"
+            className="w-full"
+          />
+
+          <p>Rating: {selectedRating}</p>
+          <Slider
+            value={selectedRating}
+            onValueChange={(value) => setSelectedRating(value)}
+            defaultValue={[0]}
+            max={5}
+            step={1}
+            className={"w-full"}
+          />
         </div>
         <DialogFooter>
           <DialogClose asChild>

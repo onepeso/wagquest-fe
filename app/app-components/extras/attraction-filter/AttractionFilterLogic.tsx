@@ -5,8 +5,8 @@ import { Attraction } from "@/types/Common";
 const AttractionFilterLogic = () => {
   const { attractions } = useStore();
   const [selectedCity, setSelectedCity] = useState("");
-  const [selectedPrice, setSelectedPrice] = useState(0);
-  const [selectedRating, setSelectedRating] = useState(0);
+  const [selectedPrice, setSelectedPrice] = useState();
+  const [selectedRating, setSelectedRating] = useState();
   const [filtersApplied, setFiltersApplied] = useState(false);
   const [filteredData, setFilteredData] = useState(attractions);
 
