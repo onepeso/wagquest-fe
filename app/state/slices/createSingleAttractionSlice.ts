@@ -5,7 +5,7 @@ export const createSingleAttractionSlice = (set: any) => ({
   fetchSingleAttraction: async (slug: string) => {
     //const headers = {'Authorization': 'Bearer ' + localStorage.getItem('accessToken')};
     const res = await fetch(
-      `${baseUrl}/attraction/slug/${slug}` //{headers: headers}
+      `https://webwagquestbe.onrender.com/attraction/slug/${slug}` //{headers: headers}
     );
     const data = await res.json();
     set({ attraction: data.attraction || null });
