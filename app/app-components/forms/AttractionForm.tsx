@@ -93,7 +93,7 @@ const AttractionForm = () => {
 
   return (
     <>
-      <section className="flex justify-center p-2">
+      <section className="flex justify-center p-5 bg-orange-100 mb-10">
         <h1 className="text-2xl font-bold">Create Attraction</h1>
       </section>
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl mx-auto">

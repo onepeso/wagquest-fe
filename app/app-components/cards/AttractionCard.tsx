@@ -19,8 +19,6 @@ const AttractionCard = () => {
     fetchAttractions();
   }, []);
 
-  console.log("filteredDataNOWWW!", filteredData);
-
   return (
     <>
       {filtersApplied && filteredData.length > 0 ? (

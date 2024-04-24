@@ -45,13 +45,6 @@ const AttractionFilterUI = () => {
   } = AttractionFilterLogic();
   const { attractions } = useStore();
 
-  console.log("filteredData", filteredData);
-  console.log("selectedCity", selectedCity);
-  console.log("selectedPrice", selectedPrice);
-  console.log("selectedRating", selectedRating);
-  console.log("attractions", attractions);
-  console.log("filtersApplied", filtersApplied);
-
   return (
     <Dialog>
       <DialogTrigger asChild className="flex gap-2">

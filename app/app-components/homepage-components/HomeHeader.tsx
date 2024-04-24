@@ -1,3 +1,4 @@
+import { ArrowDownIcon } from "lucide-react";
 import React from "react";
 
 const HomeHeader = () => {
@@ -15,7 +16,10 @@ const HomeHeader = () => {
           friend.
         </p>
         <button className="font-bold py-2 px-6 rounded-md hover:bg-[#eb4c28] transition-colors duration-300 text-white bg-[#eb5e28]">
-          We are in Alpha 1.0
+          <div className="flex gap-1">
+            <ArrowDownIcon />
+            Start Exploring
+          </div>
         </button>
       </div>
     </header>
