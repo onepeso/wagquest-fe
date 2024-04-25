@@ -3,7 +3,7 @@ export const createAttractionSlice = (set: any) => ({
   fetchAttractions: async () => {
     const baseUrl =
       process.env.NODE_ENV === "development"
-        ? "http://localhost:3000"
+        ? "http://localhost:8080"
         : process.env.NEXT_PUBLIC_PROD_API_URL;
     //const headers = {'Authorization': 'Bearer ' + localStorage.getItem('accessToken')};
     const res = await fetch(
