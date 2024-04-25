@@ -70,16 +70,17 @@ const AttractionForm = () => {
     };
 
     try {
-      const response = await fetch(
-        `https://webwagquestbe.onrender.com/attraction`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const baseUrl =
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000"
+          : process.env.NEXT_PUBLIC_PROD_API_URL;
+      const response = await fetch(`${baseUrl}/attraction`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (response.ok) {
         console.log("Attraction has been created.");
@@ -96,7 +97,7 @@ const AttractionForm = () => {
 
   return (
     <>
-      <section className="flex justify-center p-5 bg-orange-100 mb-10">
+      <section className="flex justify-center p-5 mb-10 bg-orange-100">
         <h1 className="text-2xl font-bold">Create Attraction</h1>
       </section>
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl mx-auto">
