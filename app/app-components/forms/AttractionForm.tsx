@@ -70,13 +70,16 @@ const AttractionForm = () => {
     };
 
     try {
-      const response = await fetch(`${baseUrl}/attraction`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `https://webwagquestbe.onrender.com/attraction`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         console.log("Attraction has been created.");
