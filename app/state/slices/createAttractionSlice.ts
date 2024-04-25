@@ -1,14 +1,16 @@
 import baseUrl from "@/lib/baseUrl";
 
-export const createAttractionSlice = (set: any) => ({
-  attractions: [],
-
-  fetchAttractions: async () => {
-    //const headers = {'Authorization': 'Bearer ' + localStorage.getItem('accessToken')};
-    const res = await fetch(
-      `${baseUrl}/attractions` //{headers: headers}
-    );
-    const data = await res.json();
-    set({ attractions: data.attractions || [] });
-  },
-});
+export const createAttractionSlice = (set: any) => (
+  console.log(baseUrl, "baseUrl"),
+  {
+    attractions: [],
+    fetchAttractions: async () => {
+      //const headers = {'Authorization': 'Bearer ' + localStorage.getItem('accessToken')};
+      const res = await fetch(
+        `${baseUrl}/attractions` //{headers: headers}
+      );
+      const data = await res.json();
+      set({ attractions: data.attractions || [] });
+    },
+  }
+);
