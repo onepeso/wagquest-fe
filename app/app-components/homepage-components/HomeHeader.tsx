@@ -5,11 +5,11 @@ const HomeHeader = () => {
   return (
     <header className="relative bg-cover bg-center w-full py-20 md:py-20 flex items-center justify-center bg-[#F5F5F5]">
       <div className="absolute inset-0 bg-[#F5F5F5]"></div>
-      <div className="relative z-10 text-center max-w-3xl mx-auto px-4">
+      <div className="relative z-10 max-w-3xl px-4 mx-auto text-center">
         <h1 className="text-2xl md:text-7xl font-bold mb-2 text-[#403d39] capitalize">
           <span className="text-[#eb5e28]">Unleash</span> the Adventure
         </h1>
-        <p className="text-base md:text-lg mb-6 text-black">
+        <p className="mb-6 text-base text-black md:text-lg">
           Explore a world of dog-friendly locations and experiences with
           WagQuest. Find the perfect dog parks, trails, cafes, and more. Connect
           with fellow dog owners and embark on new adventures with your furry
