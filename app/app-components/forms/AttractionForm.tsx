@@ -5,6 +5,7 @@ import { useForm, useFieldArray, Controller } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import baseUrl from "@/lib/baseUrl";
 import { OperatingHours } from "@/types/Common";
+import moment from "moment";
 
 const AttractionForm = () => {
   const { register, control, handleSubmit } = useForm();
@@ -43,25 +44,20 @@ const AttractionForm = () => {
     setIsSubmitting(true);
 
     // Convert time strings to time.Time format using today's date and local timezone
-    const formattedOperatingHours = data.operating_hours.map(
-      (oh: OperatingHours) => {
-        const today = new Date();
-        const offset = today.getTimezoneOffset() * 60 * 1000; // Offset in milliseconds
-        const localToday = new Date(today.getTime() - offset); // Get local date
-        const openTime = new Date(
-          `${localToday.toISOString().slice(0, 10)}T${oh.open_time}`
-        );
-        const closeTime = new Date(
-          `${localToday.toISOString().slice(0, 10)}T${oh.close_time}`
-        );
 
-        // Adjust the time by adding the timezone offset
-        oh.open_time = new Date(openTime.getTime() + offset).toISOString();
-        oh.close_time = new Date(closeTime.getTime() + offset).toISOString();
+    const today = new Date();
+    const formattedDate = today.toISOString().split("T")[0]; // Get the date in YYYY-MM-DD format
 
-        return oh;
-      }
-    );
+    const formattedOperatingHours = data.operating_hours.map((oh) => {
+      const openTime = moment(oh.open_time, "hh:mm A");
+      const closeTime = moment(oh.close_time, "hh:mm A");
+
+      // Format the times in UTC without the timezone offset
+      oh.open_time = openTime.utc().format("YYYY-MM-DDTHH:mm:ss");
+      oh.close_time = closeTime.utc().format("YYYY-MM-DDTHH:mm:ss");
+
+      return oh;
+    });
 
     const formData = {
       ...data,
@@ -72,7 +68,7 @@ const AttractionForm = () => {
     try {
       const baseUrl =
         process.env.NODE_ENV === "development"
-          ? "http://localhost:3000"
+          ? "http://localhost:8080"
           : process.env.NEXT_PUBLIC_PROD_API_URL;
       const response = await fetch(`${baseUrl}/attraction`, {
         method: "POST",
@@ -227,65 +223,34 @@ const AttractionForm = () => {
           <h3 className="mb-2 font-bold">Operating Hours</h3>
           {operatingHoursFields.map((field, index) => (
             <div key={field.id} className="flex items-center mb-2">
+              <select
+                {...register(`operating_hours[${index}].day`)}
+                className="w-1/3 px-4 py-2 mr-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Select Day</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+              </select>
               <input
                 type="text"
-                {...register(`operating_hours[${index}].day`)}
-                placeholder="Day"
+                {...register(`operating_hours[${index}].open_time`, {
+                  pattern: /^(0?[1-9]|1[0-2]):[0-5][0-9] (AM|PM)$/i,
+                })}
+                placeholder="Open Time (hh:mm AM/PM)"
                 className="w-1/3 px-4 py-2 mr-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <Controller
-                name={`operating_hours[${index}].open_time`}
-                control={control}
-                defaultValue=""
-                rules={{
-                  required: "Open time is required",
-                  validate: (value) => {
-                    const [hours, minutes] = value.split(":");
-                    const totalSeconds =
-                      parseInt(hours, 10) * 3600 + parseInt(minutes, 10) * 60;
-                    return !isNaN(totalSeconds);
-                  },
-                }}
-                render={({ field, fieldState: { error } }) => (
-                  <div className="w-1/3 mr-2">
-                    <input
-                      type="time"
-                      placeholder="Open Time"
-                      {...field}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                    {error && (
-                      <span className="text-red-500">{error.message}</span>
-                    )}
-                  </div>
-                )}
-              />
-              <Controller
-                name={`operating_hours[${index}].close_time`}
-                control={control}
-                defaultValue=""
-                rules={{
-                  required: "Close time is required",
-                  validate: (value) => {
-                    const [hours, minutes] = value.split(":");
-                    const totalSeconds =
-                      parseInt(hours, 10) * 3600 + parseInt(minutes, 10) * 60;
-                    return !isNaN(totalSeconds);
-                  },
-                }}
-                render={({ field, fieldState: { error } }) => (
-                  <div className="w-1/3 mr-2">
-                    <input
-                      type="time"
-                      placeholder="Close Time"
-                      {...field}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                    {error && (
-                      <span className="text-red-500">{error.message}</span>
-                    )}
-                  </div>
-                )}
+              <input
+                type="text"
+                {...register(`operating_hours[${index}].close_time`, {
+                  pattern: /^(0?[1-9]|1[0-2]):[0-5][0-9] (AM|PM)$/i,
+                })}
+                placeholder="Close Time (hh:mm AM/PM)"
+                className="w-1/3 px-4 py-2 mr-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <button
                 type="button"
@@ -306,7 +271,6 @@ const AttractionForm = () => {
             Add Operating Hours
           </button>
         </div>
-
         <button
           type="submit"
           disabled={isSubmitting}
