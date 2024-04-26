@@ -1,5 +1,3 @@
-import exp from "constants";
-
 export type OperatingHours = {
   id: number;
   attraction_id: number;
