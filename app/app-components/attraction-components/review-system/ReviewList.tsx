@@ -5,7 +5,7 @@ import ReviewUI from "./ReviewUI";
 const ReviewList = ({ reviews }: any) => {
   return (
     <ul>
-      {reviews.map((review) => (
+      {reviews.map((review: any) => (
         <li key={review.id}>
           <ReviewUI rating={review.rating} />
         </li>

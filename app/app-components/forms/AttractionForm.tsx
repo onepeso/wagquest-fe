@@ -48,7 +48,7 @@ const AttractionForm = () => {
     const today = new Date();
     const formattedDate = today.toISOString().split("T")[0]; // Get the date in YYYY-MM-DD format
 
-    const formattedOperatingHours = data.operating_hours.map((oh) => {
+    const formattedOperatingHours = data.operating_hours.map((oh: any) => {
       const openTime = moment(oh.open_time, "hh:mm A");
       const closeTime = moment(oh.close_time, "hh:mm A");
 

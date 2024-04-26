@@ -40,7 +40,7 @@ const ReviewForm = ({ attraction }: any) => {
             ))}
         </div>
       </label>
-      {errors.rating && <div>{errors.rating.message}</div>}
+      {errors.rating && <div></div>}
       <div className="flex flex-row justify-end">
         <Button type="submit" className="mt-7 w-full">
           Submit
