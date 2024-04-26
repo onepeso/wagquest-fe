@@ -11,6 +11,7 @@ import DetailsUI from "@/app/app-components/attraction-components/DetailsUI";
 import MapUI from "@/app/app-components/attraction-components/MapUI";
 import GallerySystem from "@/app/app-components/attraction-components/GallerySystem";
 import AboutAttractionUI from "@/app/app-components/attraction-components/AboutAttractionUI";
+import ReviewSystem from "@/app/app-components/attraction-components/review-system/ReviewSystem";
 
 const AttractionUI = ({ params }: any) => {
   const { attraction } = AttractionLogic(params);
@@ -23,6 +24,7 @@ const AttractionUI = ({ params }: any) => {
         <div className="flex gap-3 justify-center lg:hidden">
           <ShareSystem attraction={attraction} />
           <SaveSystem />
+          <ReviewSystem attraction={attraction} />
         </div>
       </div>
       <section className="mt-8">
