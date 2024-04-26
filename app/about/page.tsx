@@ -3,9 +3,7 @@ const AboutPage = () => {
     <div className="bg-gray-100 min-h-screen">
       <header className="bg-white py-6 shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">
-            About PawAdventures
-          </h1>
+          <h1 className="text-3xl font-bold text-gray-900">About WagQuest</h1>
         </div>
       </header>
 
@@ -46,46 +44,6 @@ const AboutPage = () => {
             </li>
           </ul>
         </section>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Team</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow p-6">
-              <img
-                src="/path/to/team-member-1.jpg"
-                alt="Team Member 1"
-                className="w-24 h-24 rounded-full mx-auto mb-4"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Giovani Garfias
-              </h3>
-              <p className="text-gray-700">Founder & CEO</p>
-            </div>
-            <div className="bg-white rounded-lg shadow p-6">
-              <img
-                src="/path/to/team-member-2.jpg"
-                alt="Team Member 2"
-                className="w-24 h-24 rounded-full mx-auto mb-4"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Jane Smith
-              </h3>
-              <p className="text-gray-700">Lead Developer</p>
-            </div>
-            <div className="bg-white rounded-lg shadow p-6">
-              <img
-                src="/path/to/team-member-3.jpg"
-                alt="Team Member 3"
-                className="w-24 h-24 rounded-full mx-auto mb-4"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Mike Johnson
-              </h3>
-              <p className="text-gray-700">Marketing Manager</p>
-            </div>
-          </div>
-        </section>
-
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
           <p className="text-lg text-gray-700 mb-4">
@@ -98,15 +56,6 @@ const AboutPage = () => {
           </ul>
         </section>
       </main>
-
-      <footer className="bg-white py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-500">
-            &copy; {new Date().getFullYear()} PawAdventures. All rights
-            reserved.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };
