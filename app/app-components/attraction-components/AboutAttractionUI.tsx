@@ -1,14 +1,14 @@
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import moment from "moment";
-import { Attraction } from "@/types/Common";
+import { OperatingHours } from "@/types/Common";
 
 const AboutAttractionUI = ({ attraction }: any) => {
   // Helper function to convert time format
   // TODO: Need to add this to the libs folder
-  const formatTime = (isoTimestamp: number) => {
-    const date = new Date(isoTimestamp);
-    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  const formatTime = (isoTimestamp: string) => {
+    const date = moment(isoTimestamp); // Parse timestamp as UTC
+    return date.format("h:mm A"); // Format as 12-hour time with AM/PM
   };
 
   const [accordionOpen, setAccordionOpen] = useState(false);
@@ -17,14 +17,14 @@ const AboutAttractionUI = ({ attraction }: any) => {
   const currentDay = moment().format("dddd");
 
   // Find today's operating hours
-  const todaysOperatingHours = attraction?.operating_hours.find(
-    (hour: any) => hour.day === currentDay
+  const todaysOperatingHours: OperatingHours = attraction?.operating_hours.find(
+    (hour: OperatingHours) => hour.day === currentDay
   );
 
   return (
-    <Card className="w-full lg:w-1/3 bg-slate-50 mt-6 lg:mt-0">
+    <Card className="w-full mt-6 lg:w-1/3 bg-slate-50 lg:mt-0">
       <CardHeader>
-        <h2 className="text-xl font-bold text-gray-900 mb-2">
+        <h2 className="mb-2 text-xl font-bold text-gray-900">
           About {attraction?.name}
         </h2>
         <div className="flex items-center gap-1">
@@ -45,7 +45,7 @@ const AboutAttractionUI = ({ attraction }: any) => {
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
         <section>
-          <h2 className="text-lg font-bold text-gray-900 mb-2">
+          <h2 className="mb-2 text-lg font-bold text-gray-900">
             Operating Hours
           </h2>
           <ul className="text-gray-700">
@@ -57,14 +57,14 @@ const AboutAttractionUI = ({ attraction }: any) => {
           </ul>
           {attraction?.operating_hours.length > 1 && (
             <button
-              className="text-blue-500 mt-2"
+              className="mt-2 text-blue-500"
               onClick={() => setAccordionOpen(!accordionOpen)}
             >
               {accordionOpen ? "Hide All Hours" : "Show All Hours"}
             </button>
           )}
           {accordionOpen && (
-            <ul className="text-gray-700 mt-2">
+            <ul className="mt-2 text-gray-700">
               {attraction?.operating_hours
                 .filter((hour: any) => hour !== todaysOperatingHours)
                 .map((hour: any, index: number) => (
@@ -77,7 +77,7 @@ const AboutAttractionUI = ({ attraction }: any) => {
           )}
         </section>
         <section>
-          <h2 className="text-lg font-bold text-gray-900 mb-2">Social Media</h2>
+          <h2 className="mb-2 text-lg font-bold text-gray-900">Social Media</h2>
           <ul className="text-gray-700">
             {attraction?.social_media_stack.map(
               (socialMedia: any, index: number) => (
