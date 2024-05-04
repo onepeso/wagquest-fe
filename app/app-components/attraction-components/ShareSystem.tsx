@@ -5,8 +5,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
-  DialogClose,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -24,7 +22,7 @@ import {
 
 const ShareSystem = ({ attraction }: any) => {
   const [isCopied, setIsCopied] = useState(false);
-  const sharableURL = `https://wagquest.com/attraction/${attraction?.slug}`;
+  const sharableURL = `https://wagquest.com/attraction/${attraction?.data?.slug.current}`;
 
   const copyToClipboard = async () => {
     try {
@@ -52,7 +50,7 @@ const ShareSystem = ({ attraction }: any) => {
           <FacebookShareButton
             url={sharableURL}
             quote={attraction?.description}
-            hashtag={"#pawadventures"}
+            hashtag={"#wagquest"}
           >
             <FacebookIcon size={32} round />
           </FacebookShareButton>
@@ -61,8 +59,8 @@ const ShareSystem = ({ attraction }: any) => {
           </TwitterShareButton>
           <EmailShareButton
             url={sharableURL}
-            subject={`Explore ${attraction?.name} on Paw Adventures!`}
-            body="Check out this cool attraction I found on Paw Adventures!"
+            subject={`Explore ${attraction?.name} on WagQuest!`}
+            body="Check out this cool attraction I found on WagQuest!"
           >
             <EmailIcon size={32} round />
           </EmailShareButton>

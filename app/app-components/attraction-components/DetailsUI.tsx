@@ -14,9 +14,9 @@ const DetailsUI = ({ attraction }: any) => {
         </AlertDescription>
       </Alert>
 
-      {attraction?.details?.length > 0 ? (
+      {attraction?.data?.details?.length > 0 ? (
         <ul className="mt-4 space-y-4 px-3">
-          {attraction?.details?.map((detail: any, index: number) => (
+          {attraction?.data?.details?.map((detail: any, index: number) => (
             <li
               key={index}
               className={`flex flex-col md:flex-row p-4 rounded-lg ${
@@ -25,10 +25,10 @@ const DetailsUI = ({ attraction }: any) => {
             >
               <strong className="font-bold text-sm mb-1 md:mb-0 md:mr-2 text-gray-80 flex gap-2 items-center">
                 <PawPrint />
-                {detail.name}:
+                {detail.detailTitle}:
               </strong>
               <span className="text-gray-700 text-sm">
-                {detail.description}
+                {detail.detailDescription}
               </span>
             </li>
           ))}

@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect } from "react";
-import { useStore } from "../../state/useStore";
+import { client } from "../../../sanity/lib/client";
+import { Post } from "@/lib/interface";
 
-const AttractionLogic = (params: any) => {
-  const { attraction, fetchSingleAttraction } = useStore();
+async function getData(slug: string) {
+  const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
+  const data = await client.fetch(query);
+  return data;
+}
 
-  useEffect(() => {
-    fetchSingleAttraction(params.slug);
-  }, [params.slug, fetchSingleAttraction]);
-
-  return { attraction };
+const AttractionLogic = async (params: any) => {
+  const data = (await getData(params.slug)) as Post;
+  return { data };
 };
 
 export default AttractionLogic;

@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 
 const LocationUI = ({ attraction }: any) => {
   return (
@@ -16,13 +9,14 @@ const LocationUI = ({ attraction }: any) => {
             Location:
           </h2>
           <address className="text-gray-600">
-            {`${attraction?.location?.street}, ${attraction?.location?.city}, ${attraction?.location?.state}, ${attraction?.location?.zipcode}`}
+            {`${attraction?.data?.location}`}
           </address>
         </div>
         <div className="flex items-center space-x-2">
           <h2 className="text-xl font-bold text-gray-800">Price:</h2>
           <p className="text-lg text-green-600 font-semibold">
-            ${attraction?.price}
+            ${attraction?.data?.prices?.lowestPrice} - $
+            {attraction?.data?.prices?.highestPrice}
           </p>
         </div>
       </CardContent>

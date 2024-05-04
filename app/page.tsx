@@ -1,9 +1,5 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import AttractionCard from "./app-components/cards/AttractionCard";
-import AttractionFilterUI from "./app-components/extras/attraction-filter/AttractionFilterUI";
-import CategoryListUI from "./app-components/extras/attraction-filter/category-list/CategoryListUI";
 import CtaFooter from "./app-components/homepage-components/CtaFooter";
 import HomeHeader from "./app-components/homepage-components/HomeHeader";
 
@@ -13,10 +9,7 @@ export default function Home() {
       <section className="w-full">
         <HomeHeader />
       </section>
-      <section className="flex flex-col md:flex-row justify-center my-8 gap-4">
-        <CategoryListUI />
-        <AttractionFilterUI />
-      </section>
+      <section className="flex flex-col md:flex-row justify-center my-8 gap-4"></section>
       <section className="md:container md:mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-8 w-full max-w-8xl px-4">
         <AttractionCard />
       </section>

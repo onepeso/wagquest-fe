@@ -11,9 +11,9 @@ const MapUI = ({ attraction }: any) => {
         </AlertDescription>
       </Alert>
       <Map
-        address={`${attraction?.name}: ${attraction?.location?.street}, ${attraction?.location?.city}, ${attraction?.location?.state}, ${attraction?.location?.zipcode} ${attraction?.location?.country}`}
-        latitude={attraction?.location?.latitude}
-        longitude={attraction?.location?.longitude}
+        address={`${attraction?.data?.location}`}
+        latitude={attraction?.data?.geopoint?.lat}
+        longitude={attraction?.data?.geopoint?.lng}
       />
     </>
   );
