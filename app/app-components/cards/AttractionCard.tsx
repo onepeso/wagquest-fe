@@ -39,7 +39,7 @@ const AttractionCard = () => {
                   />
                 </div>
                 <div className="absolute top-4 right-4 bg-white px-2 py-1 rounded shadow">
-                  Open
+                  New
                 </div>
               </figure>
             </CardHeader>
