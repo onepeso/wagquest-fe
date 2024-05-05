@@ -15,8 +15,15 @@ const LocationUI = ({ attraction }: any) => {
         <div className="flex items-center space-x-2">
           <h2 className="text-xl font-bold text-gray-800">Price:</h2>
           <p className="text-lg text-green-600 font-semibold">
-            ${attraction?.data?.prices?.lowestPrice} - $
-            {attraction?.data?.prices?.highestPrice}
+            {attraction?.data?.prices?.lowestPrice === 0 &&
+            attraction?.data?.prices?.highestPrice === 0 ? (
+              "Free"
+            ) : (
+              <span>
+                ${attraction?.data?.prices?.lowestPrice} - $
+                {attraction?.data?.prices?.highestPrice}
+              </span>
+            )}
           </p>
         </div>
       </CardContent>
