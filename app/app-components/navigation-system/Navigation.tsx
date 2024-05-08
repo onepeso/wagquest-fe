@@ -25,10 +25,11 @@ const Navigation = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                {NavLinks.map((link: any) => (
+                {NavLinks.map((link: any, index: number) => (
                   <Link
                     href={link.href}
                     className="text-white hover:bg-[#403d39] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    key={index}
                   >
                     {link.label}
                   </Link>
@@ -67,10 +68,11 @@ const Navigation = () => {
       </div>
       <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          {NavLinks.map((link: any) => (
+          {NavLinks.map((link: any, index: number) => (
             <Link
               href={link.href}
               className="text-white hover:bg-[#403d39] hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              key={index}
             >
               {link.label}
             </Link>
