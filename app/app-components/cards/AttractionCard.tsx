@@ -21,8 +21,8 @@ const AttractionCard = () => {
 
   return (
     <>
-      {data.map((post: any) => (
-        <Link href={`/attraction/${post.slug.current}`}>
+      {data.map((post: any, index: number) => (
+        <Link href={`/attraction/${post.slug.current}`} key={index}>
           <Card
             key={post._id}
             className="w-full border-none shadow-md rounded-lg overflow-hidden cursor-pointer"
