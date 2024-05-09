@@ -50,9 +50,7 @@ const AboutPage = () => {
             Have questions or feedback? We'd love to hear from you!
           </p>
           <ul className="text-lg text-gray-700">
-            <li>Email: info@pawadventures.com</li>
-            <li>Phone: (123) 456-7890</li>
-            <li>Address: 123 Main St, Anytown, USA</li>
+            <li>Email: contact@wagquest.com</li>
           </ul>
         </section>
       </main>
