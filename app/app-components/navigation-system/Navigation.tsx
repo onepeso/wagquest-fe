@@ -2,9 +2,16 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import NavLinks from "@/lib/navLinks";
+import { Sign } from "crypto";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -43,8 +50,9 @@ const Navigation = () => {
               <UserButton />
             </SignedIn>
             <SignedOut>
-              <div className="text-white">
+              <div className="text-white flex gap-3">
                 <SignInButton />
+                <SignUpButton />
               </div>
             </SignedOut>
             <div className="md:hidden">
