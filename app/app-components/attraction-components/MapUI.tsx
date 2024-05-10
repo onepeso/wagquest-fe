@@ -4,17 +4,16 @@ import Map from "@/app/app-components/map/Map";
 const MapUI = ({ attraction }: any) => {
   return (
     <>
-      <Alert>
-        <AlertTitle className="font-bold">See It In The Map</AlertTitle>
-        <AlertDescription>
-          We are adding directions to this location. Stay tuned!
-        </AlertDescription>
-      </Alert>
-      <Map
-        address={`${attraction?.data?.location}`}
-        latitude={attraction?.data?.geopoint?.lat}
-        longitude={attraction?.data?.geopoint?.lng}
-      />
+      <h3 className="scroll-m-20 my-8 text-2xl font-semibold tracking-tight">
+        Where you will find this place
+      </h3>
+      <div className="pb-10">
+        <Map
+          address={`${attraction?.data?.location}`}
+          latitude={attraction?.data?.geopoint?.lat}
+          longitude={attraction?.data?.geopoint?.lng}
+        />
+      </div>
     </>
   );
 };
