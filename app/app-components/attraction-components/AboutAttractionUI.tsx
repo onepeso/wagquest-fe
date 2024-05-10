@@ -14,20 +14,21 @@ const AboutAttractionUI = ({ attraction }: any) => {
   });
 
   return (
-    <Card className="w-full mt-6 lg:w-1/3 bg-slate-50 lg:mt-0">
+    <Card className="w-full mt-6 lg:w-1/3 bg-slate-50 lg:mt-0 h-fit">
       <CardHeader>
-        <h2 className="mb-2 text-xl font-bold text-gray-900">
-          About {attraction?.name}
+        <h2 className="mb-2 text-lg font-bold text-gray-900">
+          About
+          <span className="text-main ml-2">{attraction?.data?.title}</span>
         </h2>
         <PortableText
           value={attraction?.data.body}
           components={RichTextComponents}
         />
-        <p className="mt-4">{attraction?.content}</p>
+        <p className="mt-4 text-base">{attraction?.content}</p>
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
         <section>
-          <h2 className="mb-2 text-lg font-bold text-gray-900">
+          <h2 className="mb-1 text-lg font-bold text-gray-900">
             Operating Hours
           </h2>
           {daysWithTimes?.map((day: any, index: number) => (
