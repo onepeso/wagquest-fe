@@ -44,7 +44,7 @@ const AttractionCard = () => {
               </figure>
             </CardHeader>
             <CardContent className="p-4">
-              <CardTitle className="font-bold text-lg mb-2 hover:text-[#eb5e28]">
+              <CardTitle className="font-bold text-lg mb-2 hover:text-main">
                 {post?.title}
               </CardTitle>
               <address className="text-gray-600 text-sm">
