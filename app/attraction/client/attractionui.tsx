@@ -10,6 +10,7 @@ import MapUI from "@/app/app-components/attraction-components/MapUI";
 import GallerySystem from "@/app/app-components/attraction-components/GallerySystem";
 import AboutAttractionUI from "@/app/app-components/attraction-components/AboutAttractionUI";
 import { useEffect, useState } from "react";
+import AttractionFooter from "@/app/app-components/attraction-components/AttractionFooter";
 
 const AttractionUI = ({ params }: any) => {
   const [data, setData] = useState<any>();
@@ -29,30 +30,27 @@ const AttractionUI = ({ params }: any) => {
   }
 
   return (
-    <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <AttractionHeader attraction={data} />
-
-      <GallerySystem attraction={data} />
-      <div className="flex gap-3 justify-center lg:hidden">
-        <ShareSystem attraction={data} />
-        <SaveSystem />
-      </div>
-
-      <section className="mt-8">
-        <LocationUI attraction={data} />
-        <div className="flex flex-col lg:flex-row justify-between mt-6">
-          <section className="w-full lg:flex-grow min-w-0 flex flex-col gap-6 lg:pr-6">
-            <div>
-              <DetailsUI attraction={data} />
-            </div>
-            <section className="flex flex-col gap-3">
-              <MapUI attraction={data} />
+    <>
+      <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <AttractionHeader attraction={data} />
+        <GallerySystem attraction={data} />
+        <section className="mt-8">
+          <LocationUI attraction={data} />
+          <div className="flex flex-col lg:flex-row justify-between mt-6">
+            <section className="w-full lg:flex-grow min-w-0 flex flex-col gap-6 lg:pr-6">
+              <div>
+                <DetailsUI attraction={data} />
+              </div>
+              <section className="flex flex-col gap-3">
+                <MapUI attraction={data} />
+              </section>
             </section>
-          </section>
-          <AboutAttractionUI attraction={data} />
-        </div>
-      </section>
-    </article>
+            <AboutAttractionUI attraction={data} />
+          </div>
+        </section>
+      </article>
+      <AttractionFooter attraction={data} />
+    </>
   );
 };
 
