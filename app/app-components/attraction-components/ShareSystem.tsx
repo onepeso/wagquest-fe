@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Copy, CheckCheck } from "lucide-react";
+import { Copy, CheckCheck, ShareIcon } from "lucide-react";
 import { useState } from "react";
 import {
   FacebookShareButton,
@@ -37,11 +37,14 @@ const ShareSystem = ({ attraction }: any) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline"> Share </Button>
+        <Button variant="outline" className="">
+          <ShareIcon className="w-4 h-4 mr-1" />
+          <span className="hidden lg:block">Share</span>
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle> Share </DialogTitle>
+          <DialogTitle>Share</DialogTitle>
           <DialogDescription>
             Share this attraction with your friends!
           </DialogDescription>
