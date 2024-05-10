@@ -39,8 +39,8 @@ const Navigation = () => {
           </div>
           <div className="-mr-2 flex gap-3 items-center ">
             {/* Clerk components */}
-
             <UserMenu />
+            {/* Clerk components */}
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
