@@ -28,7 +28,7 @@ const Navigation = () => {
                 {NavLinks.map((link: any, index: number) => (
                   <Link
                     href={link.href}
-                    className="text-white hover:bg-[#403d39] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-white hover:underline hover:underline-offset-8 px-3 py-2 rounded-md text-sm font-medium"
                     key={index}
                   >
                     {link.label}
