@@ -7,7 +7,7 @@ const HomeHeader = () => {
       <div className="absolute inset-0 bg-[#F5F5F5]"></div>
       <div className="relative z-10 max-w-3xl px-4 mx-auto text-center">
         <h1 className="text-2xl md:text-7xl font-bold mb-2 text-[#403d39] capitalize">
-          <span className="text-[#eb5e28]">Unleash</span> the Adventure
+          <span className="text-main">Unleash</span> the Adventure
         </h1>
         <p className="mb-6 text-base text-black md:text-lg">
           Explore a world of dog-friendly locations and experiences with
@@ -15,7 +15,7 @@ const HomeHeader = () => {
           with fellow dog owners and embark on new adventures with your furry
           friend.
         </p>
-        <button className="font-bold py-2 px-6 rounded-md hover:bg-[#eb4c28] transition-colors duration-300 text-white bg-[#eb5e28]">
+        <button className="font-bold py-2 px-6 rounded-md hover:bg-main transition-colors duration-300 text-white bg-main">
           <div className="flex gap-1">
             <ArrowDownIcon />
             Start Exploring
