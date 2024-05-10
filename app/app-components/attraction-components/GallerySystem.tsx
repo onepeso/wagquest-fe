@@ -10,7 +10,7 @@ const GallerySystem = ({ attraction }: any) => {
           alt="Attraction Image"
           width={2000}
           height={500}
-          className="rounded-lg w-full"
+          className="rounded-lg w-full h-[500px] object-cover"
           priority
         />
       </section>
