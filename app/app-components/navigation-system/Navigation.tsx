@@ -2,15 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-} from "@clerk/nextjs";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import NavLinks from "@/lib/navLinks";
+import UserMenu from "./UserMenu";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -45,15 +39,8 @@ const Navigation = () => {
           </div>
           <div className="-mr-2 flex gap-3 items-center ">
             {/* Clerk components */}
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-            <SignedOut>
-              <div className="text-white flex gap-3">
-                <SignInButton />
-                <SignUpButton />
-              </div>
-            </SignedOut>
+
+            <UserMenu />
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
