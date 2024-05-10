@@ -11,7 +11,6 @@ import {
 } from "@clerk/nextjs";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import NavLinks from "@/lib/navLinks";
-import { Sign } from "crypto";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -21,7 +20,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-[#eb5e28]">
+    <nav className="bg-main">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -59,15 +58,21 @@ const Navigation = () => {
               <button
                 onClick={toggleMenu}
                 type="button"
-                className="bg-[#403d39] inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                className="bg-white inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 aria-controls="mobile-menu"
                 aria-expanded={isOpen}
               >
                 <span className="sr-only">Open main menu</span>
                 {isOpen ? (
-                  <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                  <XMarkIcon
+                    className="block h-6 w-6 text-black font-extrabold"
+                    aria-hidden="true"
+                  />
                 ) : (
-                  <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                  <Bars3Icon
+                    className="block h-6 w-6 text-black font-bold"
+                    aria-hidden="true"
+                  />
                 )}
               </button>
             </div>
@@ -79,7 +84,7 @@ const Navigation = () => {
           {NavLinks.map((link: any, index: number) => (
             <Link
               href={link.href}
-              className="text-white hover:bg-[#403d39] hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="text-white hover:text-black hover:bg-white block px-3 py-2 rounded-md text-base font-medium"
               key={index}
             >
               {link.label}
