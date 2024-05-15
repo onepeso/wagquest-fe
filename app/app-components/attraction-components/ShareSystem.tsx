@@ -22,7 +22,7 @@ import {
 
 const ShareSystem = ({ attraction }: any) => {
   const [isCopied, setIsCopied] = useState(false);
-  const sharableURL = `https://wagquest.com/attraction/${attraction?.data?.slug.current}`;
+  const sharableURL = `https://wagquest.com/attraction/${attraction?.slug.current}`;
 
   const copyToClipboard = async () => {
     try {

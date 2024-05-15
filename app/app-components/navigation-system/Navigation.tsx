@@ -2,15 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-} from "@clerk/nextjs";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import NavLinks from "@/lib/navLinks";
+import UserMenu from "./UserMenu";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -21,7 +15,7 @@ const Navigation = () => {
 
   return (
     <nav className="bg-main">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
@@ -34,7 +28,7 @@ const Navigation = () => {
                 {NavLinks.map((link: any, index: number) => (
                   <Link
                     href={link.href}
-                    className="text-white hover:bg-[#403d39] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-white hover:underline hover:underline-offset-8 px-3 py-2 rounded-md text-sm font-medium"
                     key={index}
                   >
                     {link.label}
@@ -45,15 +39,8 @@ const Navigation = () => {
           </div>
           <div className="-mr-2 flex gap-3 items-center ">
             {/* Clerk components */}
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-            <SignedOut>
-              <div className="text-white flex gap-3">
-                <SignInButton />
-                <SignUpButton />
-              </div>
-            </SignedOut>
+            <UserMenu />
+            {/* Clerk components */}
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}

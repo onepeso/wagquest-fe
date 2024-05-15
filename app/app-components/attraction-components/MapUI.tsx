@@ -9,9 +9,9 @@ const MapUI = ({ attraction }: any) => {
       </h3>
       <div className="pb-10">
         <Map
-          address={`${attraction?.data?.location}`}
-          latitude={attraction?.data?.geopoint?.lat}
-          longitude={attraction?.data?.geopoint?.lng}
+          address={`${attraction?.location}`}
+          latitude={attraction?.geopoint?.lat}
+          longitude={attraction?.geopoint?.lng}
         />
       </div>
     </>
