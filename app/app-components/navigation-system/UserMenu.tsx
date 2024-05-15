@@ -54,7 +54,6 @@ const UserMenu = () => {
               <SignUpButton>
                 <p className="flex gap-2 items-center">
                   <ArrowRightToLineIcon className="w-4 h-4" />
-
                   <span className="font-semibold">Sign Up</span>
                 </p>
               </SignUpButton>
