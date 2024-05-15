@@ -6,22 +6,18 @@ import Link from "next/link";
 import urlFor from "../../../lib/urlFor";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useStore } from "@/app/state/useStore";
 
 const AttractionCard = () => {
-  const [data, setData] = useState([]);
+  const { attractions, fetchAttractions } = useStore();
 
   useEffect(() => {
-    const getData = async () => {
-      const query = '*[_type == "post"]';
-      const data = await client.fetch(query);
-      setData(data);
-    };
-    getData();
+    fetchAttractions();
   }, []);
 
   return (
     <>
-      {data.map((post: any, index: number) => (
+      {attractions.map((post: any, index: number) => (
         <Link href={`/attraction/${post.slug.current}`} key={index}>
           <Card
             key={post._id}

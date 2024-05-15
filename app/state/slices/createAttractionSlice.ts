@@ -1,15 +1,15 @@
+import { client } from "../../../sanity/lib/client";
+
 export const createAttractionSlice = (set: any) => ({
   attractions: [],
   fetchAttractions: async () => {
-    const baseUrl =
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:8080"
-        : process.env.NEXT_PUBLIC_PROD_API_URL;
-    //const headers = {'Authorization': 'Bearer ' + localStorage.getItem('accessToken')};
-    const res = await fetch(
-      `${baseUrl}/attractions` //{headers: headers}
-    );
-    const data = await res.json();
-    set({ attractions: data.attractions || [] });
+    try {
+      const query = `*[_type == "post"]`;
+      const data = await client.fetch(query);
+      set({ attractions: data || [] });
+    } catch (error) {
+      console.error("Error fetching attractions:", error);
+      set({ attractions: [] }); // Set attractions to empty array in case of error
+    }
   },
 });
