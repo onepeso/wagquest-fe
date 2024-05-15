@@ -6,7 +6,7 @@ const GallerySystem = ({ attraction }: any) => {
     <>
       <section className="w-full">
         <Image
-          src={urlFor(attraction?.data?.mainImage).url()}
+          src={urlFor(attraction?.mainImage).url()}
           alt="Attraction Image"
           width={2000}
           height={500}

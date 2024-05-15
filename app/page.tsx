@@ -2,6 +2,30 @@ import { Button } from "@/components/ui/button";
 import AttractionCard from "./app-components/cards/AttractionCard";
 import CtaFooter from "./app-components/homepage-components/CtaFooter";
 import HomeHeader from "./app-components/homepage-components/HomeHeader";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "WagQuest",
+  description:
+    "WagQuest is a web app that helps you find the best attractions and activities for you and your dog.",
+  keywords: "dog, dog attractions, travel, attractions, activities,",
+  openGraph: {
+    title: "WagQuest",
+    description:
+      "WagQuest is a web app that helps you find the best attractions and activities for you and your dog.",
+    type: "website",
+    url: "https://wagquest.com",
+    images: [
+      {
+        url: "https://www.wagquest.com/nature.svg",
+        width: 1200,
+        height: 630,
+        alt: "WagQuest",
+      },
+    ],
+    locale: "en_US",
+  },
+};
 
 export default function Home() {
   return (

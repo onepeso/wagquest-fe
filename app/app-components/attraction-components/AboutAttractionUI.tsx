@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Instagram, Facebook, Linkedin } from "lucide-react";
 
 const AboutAttractionUI = ({ attraction }: any) => {
-  const daysWithTimes = attraction?.data?.availability?.map((day: any) => {
+  const daysWithTimes = attraction?.availability?.map((day: any) => {
     return {
       day: day.day,
       startTime: day.availableTimes[0]?.from,
@@ -18,10 +18,10 @@ const AboutAttractionUI = ({ attraction }: any) => {
       <CardHeader>
         <h2 className="mb-2 text-lg font-bold text-gray-900">
           About
-          <span className="text-main ml-2">{attraction?.data?.title}</span>
+          <span className="text-main ml-2">{attraction?.title}</span>
         </h2>
         <PortableText
-          value={attraction?.data.body}
+          value={attraction?.body}
           components={RichTextComponents}
         />
         <p className="mt-4 text-base">{attraction?.content}</p>
@@ -59,19 +59,17 @@ const AboutAttractionUI = ({ attraction }: any) => {
         <section>
           <h2 className="mb-2 text-lg font-bold text-gray-900">Social Media</h2>
           <div className="flex gap-2">
-            {attraction?.data?.socialStack?.map(
-              (social: any, index: number) => (
-                <Link key={index} href={social.socialLink}>
-                  {social.socialPlatform === "Instagram" ? (
-                    <Instagram />
-                  ) : social.socialPlatform === "Facebook" ? (
-                    <Facebook />
-                  ) : social.socialPlatform === "LinkedIn" ? (
-                    <Linkedin />
-                  ) : null}
-                </Link>
-              )
-            )}
+            {attraction?.socialStack?.map((social: any, index: number) => (
+              <Link key={index} href={social.socialLink}>
+                {social.socialPlatform === "Instagram" ? (
+                  <Instagram />
+                ) : social.socialPlatform === "Facebook" ? (
+                  <Facebook />
+                ) : social.socialPlatform === "LinkedIn" ? (
+                  <Linkedin />
+                ) : null}
+              </Link>
+            ))}
           </div>
         </section>
       </CardContent>
