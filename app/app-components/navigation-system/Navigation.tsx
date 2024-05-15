@@ -5,6 +5,9 @@ import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import NavLinks from "@/lib/navLinks";
 import UserMenu from "./UserMenu";
+import { League_Spartan } from "next/font/google";
+
+const league = League_Spartan({ subsets: ["latin"] });
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -18,9 +21,9 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 text-white font-bold text-3xl">
               <Link href="/">
-                <span className="text-white font-bold text-xl">WagQuest</span>
+                <span className={league.className}>WagQuest</span>
               </Link>
             </div>
             <div className="hidden md:block">
