@@ -32,6 +32,7 @@ const AttractionCard = () => {
                     width={600}
                     height={400}
                     className="w-full h-48 object-cover"
+                    priority
                   />
                 </div>
                 <div className="absolute top-4 right-4 bg-white px-2 py-1 rounded shadow">
