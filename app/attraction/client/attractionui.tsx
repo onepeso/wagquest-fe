@@ -25,7 +25,7 @@ const AttractionUI = ({ params }: any) => {
     };
 
     fetchData();
-  }, [params.slug, fetchSingleAttraction]);
+  }, [params.slug]);
 
   return (
     <>
