@@ -14,6 +14,7 @@ const HomeHeader = () => {
               width={300}
               height={600}
               className="w-40 md:w-48"
+              priority
             />
           </div>
           <h1 className="text-2xl md:text-7xl font-bold mb-2 text-[#403d39] capitalize w-fit">
