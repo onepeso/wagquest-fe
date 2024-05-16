@@ -27,7 +27,6 @@ const AttractionUI = ({ params }: any) => {
     fetchData();
   }, [params.slug, fetchSingleAttraction]);
 
-  console.log("attraction", attraction);
   return (
     <>
       {attraction && (
