@@ -12,7 +12,7 @@ import {
 const GallerySystem = ({ attraction }: any) => {
   return (
     <>
-      <section className="w-full p-5">
+      <section className="w-full">
         <Carousel>
           <CarouselContent>
             {attraction?.gallery.map((image: any, index: number) => (
@@ -28,8 +28,8 @@ const GallerySystem = ({ attraction }: any) => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="absolute ml-20 w-10 h-10" />
+          <CarouselNext className="absolute mr-20 w-10 h-10" />
         </Carousel>
       </section>
     </>
