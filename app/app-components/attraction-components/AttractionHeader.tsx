@@ -2,7 +2,6 @@ import SaveSystem from "./SaveSystem";
 import ShareSystem from "./ShareSystem";
 
 const AttractionHeader = ({ attraction }: any) => {
-  console.log("attraction header", attraction);
   return (
     <header className="flex md:items-center justify-between lg:mb-4">
       <div className="mb-4 md:mb-0">

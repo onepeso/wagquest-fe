@@ -26,11 +26,12 @@ export default defineType({
       to: { type: "author" },
     }),
     defineField({
-      name: "mainImage",
-      title: "Main image",
-      type: "image",
+      name: "gallery",
+      title: "gallery",
+      type: "array",
+      of: [{ type: "image" }],
       options: {
-        hotspot: true,
+        layout: "grid",
       },
     }),
     defineField({

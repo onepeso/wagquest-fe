@@ -22,8 +22,6 @@ const AttractionCard = () => {
     fetchAttractions();
   }, []);
 
-  console.log("attraction card called:", attractions);
-
   return (
     <>
       {attractions.map((post: any, index: number) => (
