@@ -39,8 +39,12 @@ export default function Home() {
       </section>
       <section className="flex flex-col gap-2 md:gap-5 items-center my-10 md:my-20 capitalize text-xl font-semibold">
         <p>continue exploring amazing attractions</p>
-        <Button variant="default" className="w-1/3 md:w-1/4 capitalize text-lg">
-          show more
+        <Button
+          variant="default"
+          disabled
+          className="w-1/3 md:w-1/4 capitalize text-lg"
+        >
+          No more attractions
         </Button>
       </section>
       <section className="w-full mt-10 bg-gray-100">
