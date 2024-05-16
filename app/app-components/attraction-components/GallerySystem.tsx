@@ -28,8 +28,8 @@ const GallerySystem = ({ attraction }: any) => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute ml-20 w-10 h-10" />
-          <CarouselNext className="absolute mr-20 w-10 h-10" />
+          <CarouselPrevious className="absolute ml-20 w-10 h-10 rounded" />
+          <CarouselNext className="absolute mr-20 w-10 h-10 rounded" />
         </Carousel>
       </section>
     </>
