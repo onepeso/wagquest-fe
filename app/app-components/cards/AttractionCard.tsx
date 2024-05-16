@@ -27,11 +27,12 @@ const AttractionCard = () => {
               <figure className="relative">
                 <div className="flex items-center justify-center">
                   <Image
-                    src={urlFor(post?.mainImage).url()}
+                    src={urlFor(post?.mainImage, 600, 400)}
                     alt={post.title}
                     width={600}
                     height={400}
                     className="w-full h-48 object-cover"
+                    priority
                   />
                 </div>
                 <div className="absolute top-4 right-4 bg-white px-2 py-1 rounded shadow">

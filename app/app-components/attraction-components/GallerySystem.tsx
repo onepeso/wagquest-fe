@@ -6,10 +6,10 @@ const GallerySystem = ({ attraction }: any) => {
     <>
       <section className="w-full">
         <Image
-          src={urlFor(attraction?.mainImage).url()}
+          src={urlFor(attraction?.mainImage, 600, 400)}
           alt="Attraction Image"
-          width={2000}
-          height={500}
+          width={600}
+          height={400}
           className="rounded-lg w-full h-[500px] object-cover"
           priority
         />
