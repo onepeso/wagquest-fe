@@ -10,7 +10,7 @@ async function getData(slug: string) {
 }
 
 const AttractionLogic = async (params: any) => {
-  const data = (await getData(params.slug)) as Post;
+  const data = (await getData(params?.slug)) as Post;
   return { data };
 };
 

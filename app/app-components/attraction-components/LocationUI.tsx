@@ -10,7 +10,7 @@ const LocationUI = ({ attraction }: any) => {
           </address>
         </div>
         <div className="hidden md:flex items-center space-x-2">
-          <h2 className="text-xl font-semibold text-gray-800">Price Range:</h2>
+          <p className="text-xl font-semibold text-gray-800">Price Range:</p>
           <p className="text-lg text-main font-semibold">
             {attraction?.prices?.lowestPrice === 0 &&
             attraction?.prices?.highestPrice === 0 ? (

@@ -34,6 +34,15 @@ export default defineType({
       },
     }),
     defineField({
+      name: "gallery",
+      title: "gallery",
+      type: "array",
+      of: [{ type: "image" }],
+      options: {
+        layout: "grid",
+      },
+    }),
+    defineField({
       name: "geopoint",
       title: "GeoPoint",
       type: "geopoint",

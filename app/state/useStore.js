@@ -1,11 +1,17 @@
 import { create } from "zustand";
 import { createAttractionSlice } from "./slices/createAttractionSlice";
 import { createSingleAttractionSlice } from "./slices/createSingleAttractionSlice";
-import { devtools } from "zustand/middleware";
+import { devtools, persist } from "zustand/middleware";
+import { persistConfig } from "@/app/state/persistance";
 
 export const useStore = create(
-  devtools((set) => ({
-    ...createAttractionSlice(set),
-    ...createSingleAttractionSlice(set),
-  }))
+  devtools(
+    persist(
+      (set) => ({
+        ...createAttractionSlice(set),
+        ...createSingleAttractionSlice(set),
+      }),
+      persistConfig
+    )
+  )
 );
