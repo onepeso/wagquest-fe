@@ -8,7 +8,7 @@ export const RichTextComponents = {
       return (
         <div>
           <Image
-            src={urlFor(value, 600, 400)}
+            src={urlFor(value).url()}
             alt={value.alt}
             width={2000}
             height={500}
