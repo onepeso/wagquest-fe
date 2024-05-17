@@ -34,19 +34,13 @@ export default function Home() {
         <HomeHeader />
       </section>
       <section className="flex flex-col md:flex-row justify-center my-8 gap-4"></section>
-      <section className="md:container md:mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-8 w-full max-w-8xl px-4">
-        <AttractionCard />
+      <section className="md:container md:mx-auto">
+        <h3 className="px-4 md:px-7 lg:px-8">Latest Attractions</h3>
+        <div className="md:container md:mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-8 w-full max-w-8xl px-4">
+          <AttractionCard />
+        </div>
       </section>
-      <section className="flex flex-col gap-2 md:gap-5 items-center my-10 md:my-20 capitalize text-xl font-semibold">
-        <p>continue exploring amazing attractions</p>
-        <Button
-          variant="default"
-          disabled
-          className="w-1/3 md:w-1/4 capitalize text-lg"
-        >
-          No more attractions
-        </Button>
-      </section>
+
       <section className="w-full mt-10 bg-gray-100">
         <CtaFooter />
       </section>

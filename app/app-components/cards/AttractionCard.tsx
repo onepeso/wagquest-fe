@@ -15,12 +15,15 @@ import {
 import { useStore } from "@/app/state/useStore";
 import { Badge } from "@/components/ui/badge";
 import { checkNewPost } from "@/lib/checkNewPost";
+import { Button } from "@/components/ui/button";
+import { url } from "inspector";
 
 const AttractionCard = () => {
-  const { attractions, fetchAttractions } = useStore();
+  const { attractions, fetchAttractions, isLoadingMore, page, pageSize } =
+    useStore();
 
   useEffect(() => {
-    fetchAttractions();
+    fetchAttractions(1, 10);
   }, []);
 
   return (
@@ -29,16 +32,12 @@ const AttractionCard = () => {
         <Link href={`/attraction/${post.slug.current}`} key={index}>
           <Card className="w-full max-w-sm">
             <div className="relative">
-              <img
+              <Image
+                width={400}
+                height={240}
                 alt="Card Image"
-                className="w-full h-auto"
-                height="240"
-                src={urlFor(post?.mainImage, 400, 240)}
-                style={{
-                  aspectRatio: "400/240",
-                  objectFit: "cover",
-                }}
-                width="400"
+                className="w-full h-auto object-cover aspect-video"
+                src={urlFor(post?.mainImage).url()}
               />
               {checkNewPost(post._createdAt) && (
                 <Badge className="absolute top-2 left-2 bg-gray-900 text-white px-2 py-1 rounded-md">
@@ -57,6 +56,15 @@ const AttractionCard = () => {
           </Card>
         </Link>
       ))}
+
+      {/* <p>Continue exploring amazing attractions</p>
+      {isLoadingMore ? (
+        <p>Loading more attractions...</p>
+      ) : (
+        <Button variant="default" className="capitalize text-lg">
+          Load More
+        </Button>
+      )} */}
     </>
   );
 };
