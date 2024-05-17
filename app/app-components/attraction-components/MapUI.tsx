@@ -2,7 +2,6 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Map from "@/app/app-components/map/Map";
 
 const MapUI = ({ attraction }: any) => {
-  console.log("map test", attraction.geopoint.lat, attraction.geopoint.lng);
   return (
     <>
       <h3 className="scroll-m-20 my-8 text-2xl font-semibold tracking-tight">
