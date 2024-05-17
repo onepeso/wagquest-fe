@@ -4,7 +4,7 @@ export const createAttractionSlice = (set: any) => ({
   attractions: [],
   fetchAttractions: async () => {
     try {
-      const query = `*[_type == "post"]`;
+      const query = `*[_type == "post"] | order(_createdAt desc)`;
       const data = await client.fetch(query);
       set({ attractions: data || [] });
     } catch (error) {
