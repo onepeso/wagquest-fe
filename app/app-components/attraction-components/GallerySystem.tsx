@@ -18,7 +18,7 @@ const GallerySystem = ({ attraction }: any) => {
             {attraction?.gallery.map((image: any, index: number) => (
               <CarouselItem key={index}>
                 <Image
-                  src={urlFor(image, 600, 400)}
+                  src={urlFor(image).url()}
                   alt="Attraction Image"
                   width={600}
                   height={400}
