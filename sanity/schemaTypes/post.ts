@@ -26,6 +26,14 @@ export default defineType({
       to: { type: "author" },
     }),
     defineField({
+      name: "mainImage",
+      title: "Main image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: "gallery",
       title: "gallery",
       type: "array",
