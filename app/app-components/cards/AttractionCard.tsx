@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/card";
 import { useStore } from "@/app/state/useStore";
 import { Badge } from "@/components/ui/badge";
+import { checkNewPost } from "@/lib/checkNewPost";
 
 const AttractionCard = () => {
   const { attractions, fetchAttractions } = useStore();
@@ -39,9 +40,11 @@ const AttractionCard = () => {
                 }}
                 width="400"
               />
-              <Badge className="absolute top-2 left-2 bg-gray-900 text-white px-2 py-1 rounded-md">
-                New
-              </Badge>
+              {checkNewPost(post._createdAt) && (
+                <Badge className="absolute top-2 left-2 bg-gray-900 text-white px-2 py-1 rounded-md">
+                  New
+                </Badge>
+              )}
             </div>
             <CardContent>
               <CardTitle className="text-lg font-medium mb-1 mt-3">
