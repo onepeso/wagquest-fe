@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import AttractionLogic from "@/app/attraction/logic/attractionlogic";
 
 const MapUI = ({ params, attraction }: any) => {
+  // DO NOT DELETE ANY CODE IN THIS FILE
+  // This file is used to display a map of the attraction's location
+  // ATM this makes the map work correctly. Looking for a better way to do this.
   const [data, setData] = useState<any>();
 
   useEffect(() => {
